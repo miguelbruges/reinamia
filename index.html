@@ -4,122 +4,238 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poesía Romántica</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Cursive', sans-serif;
+            background-color: #fff1f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .poetry-text {
+            font-size: 24px;
+            color: #e672a1;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        .poetry-text p {
+            line-height: 1.8;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #e672a1;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .button:disabled {
+            background-color: #e2a8c1;
+        }
+        .button-small {
+            font-size: 12px;
+            background-color: transparent;
+            border: none;
+            color: #e672a1;
+        }
+        .arrow {
+            font-size: 30px;
+            cursor: pointer;
+            color: #e672a1;
+            transition: transform 0.3s ease;
+        }
+        .arrow:hover {
+            transform: scale(1.2);
+        }
+        .question {
+            font-size: 28px;
+            color: #e672a1;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <div class="page" id="page1">
-        <div class="welcome">
-            <h1>¿Estás lista para lo que viene?</h1>
-            <div class="options">
-                <button class="yes">Sí</button>
-                <span>(no hay más opción)</span>
+    <div class="container">
+        <div class="page active" id="page1">
+            <div class="poetry-text">
+                <p>¿Estás lista para lo que viene?</p>
+            </div>
+            <div class="buttons">
+                <button class="button" onclick="nextPage(2)">Sí</button>
+                <button class="button-small" disabled>(no hay más opción)</button>
+            </div>
+        </div>
+        
+        <div class="page" id="page2">
+            <div class="poetry-text">
+                <p>Eres mi reina, corona de mi vida, la obra más pura que Dios bendijo un día.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(1)">←</span>
+                <span class="arrow" onclick="nextPage(3)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page3">
+            <div class="poetry-text">
+                <p>Morena de miel, tus ojos me atrapan, hablan sin palabras, al alma me abrazan.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(2)">←</span>
+                <span class="arrow" onclick="nextPage(4)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page4">
+            <div class="poetry-text">
+                <p>Tu voz es un canto que al cielo sublima, y en tu forma de ser, lo eterno germina.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(3)">←</span>
+                <span class="arrow" onclick="nextPage(5)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page5">
+            <div class="poetry-text">
+                <p>Carisma y bondad caminan contigo, y en tu inteligencia, encuentro un abrigo.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(4)">←</span>
+                <span class="arrow" onclick="nextPage(6)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page6">
+            <div class="poetry-text">
+                <p>Dios está en medio de este amor divino, Él guía mis pasos hacia tu destino.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(5)">←</span>
+                <span class="arrow" onclick="nextPage(7)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page7">
+            <div class="poetry-text">
+                <p>Un propósito juntos, un sueño en su plan, tomados de Su mano, jamás caerán.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(6)">←</span>
+                <span class="arrow" onclick="nextPage(8)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page8">
+            <div class="poetry-text">
+                <p>Tus curvas, tus formas, tu cuerpo esculpido, son arte en el lienzo que Dios ha tejido.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(7)">←</span>
+                <span class="arrow" onclick="nextPage(9)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page9">
+            <div class="poetry-text">
+                <p>Pero más que la vista, me llena el alma, tu esencia, tu risa, tu paz que me calma.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(8)">←</span>
+                <span class="arrow" onclick="nextPage(10)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page10">
+            <div class="poetry-text">
+                <p>Cuando te miro, mi mundo se detiene, y siento que el cielo contigo conviene.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(9)">←</span>
+                <span class="arrow" onclick="nextPage(11)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page11">
+            <div class="poetry-text">
+                <p>Caricias y abrazos, besos en tu mejilla, son notas de amor que mi espíritu brilla.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(10)">←</span>
+                <span class="arrow" onclick="nextPage(12)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page12">
+            <div class="poetry-text">
+                <p>Reina de mi vida, mi musa, mi todo, a tu lado, el tiempo es un sueño, un modo.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(11)">←</span>
+                <span class="arrow" onclick="nextPage(13)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page13">
+            <div class="poetry-text">
+                <p>De amarte en lo eterno, en la fe y la verdad, encontré en ti el amor: mi hogar, mi paz.</p>
+            </div>
+            <div class="buttons">
+                <span class="arrow" onclick="prevPage(12)">←</span>
+                <span class="arrow" onclick="nextPage(14)">→</span>
+            </div>
+        </div>
+        
+        <div class="page" id="page14">
+            <div class="question">
+                <p>¿Quieres ser mi San Valentín por siempre?</p>
+                <div class="buttons">
+                    <button class="button" onclick="alert('¡Feliz Día de San Valentín!')">Sí</button>
+                    <button class="button" onclick="alert('¡Gracias por leer!')">No</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="page" id="page2">
-        <p class="poetry-line">Eres mi reina, corona de mi vida, la obra más pura que Dios bendijo un día.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
+    <script>
+        let currentPage = 1;
 
-    <div class="page" id="page3">
-        <p class="poetry-line">Morena de miel, tus ojos me atrapan, hablan sin palabras, al alma me abrazan.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
+        function nextPage(pageNumber) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            document.getElementById('page' + pageNumber).classList.add('active');
+            currentPage = pageNumber;
+        }
 
-    <div class="page" id="page4">
-        <p class="poetry-line">Tu voz es un canto que al cielo sublima, y en tu forma de ser, lo eterno germina.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page5">
-        <p class="poetry-line">Carisma y bondad caminan contigo, y en tu inteligencia, encuentro un abrigo.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page6">
-        <p class="poetry-line">Dios está en medio de este amor divino, Él guía mis pasos hacia tu destino.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page7">
-        <p class="poetry-line">Un propósito juntos, un sueño en su plan, tomados de Su mano, jamás caerán.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page8">
-        <p class="poetry-line">Tus curvas, tus formas, tu cuerpo esculpido, son arte en el lienzo que Dios ha tejido.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page9">
-        <p class="poetry-line">Pero más que la vista, me llena el alma, tu esencia, tu risa, tu paz que me calma.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page10">
-        <p class="poetry-line">Cuando te miro, mi mundo se detiene, y siento que el cielo contigo conviene.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page11">
-        <p class="poetry-line">Caricias y abrazos, besos en tu mejilla, son notas de amor que mi espíritu brilla.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page12">
-        <p class="poetry-line">Reina de mi vida, mi musa, mi todo, a tu lado, el tiempo es un sueño, un modo.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page13">
-        <p class="poetry-line">De amarte en lo eterno, en la fe y la verdad, encontré en ti el amor: mi hogar, mi paz.</p>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-            <button class="arrow right">&#8594;</button>
-        </div>
-    </div>
-
-    <div class="page" id="page14">
-        <h1>¿Quieres ser mi San Valentín por siempre?</h1>
-        <div class="nav">
-            <button class="arrow left">&#8592;</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+        function prevPage(pageNumber) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            document.getElementById('page' + pageNumber).classList.add('active');
+            currentPage = pageNumber;
+        }
+    </script>
 </body>
 </html>
